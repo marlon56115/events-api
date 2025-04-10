@@ -56,3 +56,23 @@ export const getEvents = async (req, res) => {
       res.status(500).json({ message: "Error interno del servidor" });
     }
   };
+
+  export const registerAttendee = async (req, res) => {
+    const { eventId, attendeeId } = req.params;
+  
+    try {
+      const event = await Event.findByPk(eventId);
+      const attendee = await Attendee.findByPk(attendeeId);
+  
+      if (!event || !attendee) {
+        return res.status(404).json({ message: "Evento o asistente no encontrado" });
+      }
+  
+      await event.addAttendee(attendee);
+  
+      res.status(200).json({ message: "Asistente registrado al evento" });
+    } catch (err) {
+      console.error("❌ Error registrando asistente:", err.message);
+      res.status(500).json({ message: "Error interno del servidor" });
+    }
+  };
