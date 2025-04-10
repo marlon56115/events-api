@@ -1,0 +1,16 @@
+{
+  "name": "eventos-api",
+  "version": "1.0.0",
+  "description": "application to manage events and attendees",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "events-api"
+  },
+  "author": "marlon56115",
+  "license": "ISC"
+}
